@@ -1,0 +1,41 @@
+schema {
+  query: Query
+  mutation: Mutation
+}
+
+type Query {
+  dogs: [Dog]
+  dog(id: Int!): Dog
+  owners: [Owner]
+  owner(name: String!): Owner
+  findDog(term: String): Dog
+}
+
+type Mutation {
+  updateDogName(dogId: Int!, name: String!): Dog
+  addOwner(dogId: Int!, owner: OwnerInput!): Dog
+  addOwners(dogId: Int!, owners: [OwnerInput]!): Dog
+  updateOwnerStatus(dogId: Int!, ownerName: String!, isCurrent: Boolean!): Dog
+}
+
+type Dog {
+  id: ID!
+  name: String!
+  dateOfBirth: String!
+  breed: String!
+  owners: [Owner]
+}
+
+type Owner {
+  name: String!
+  isCurrent: Boolean!
+  ownershipStartDate: String
+  ownershipEndDate: String
+}
+
+input OwnerInput {
+  name: String!
+  isCurrent: Boolean!
+  ownershipStartDate: String
+  ownershipEndDate: String
+}
