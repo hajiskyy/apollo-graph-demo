@@ -19,3 +19,5 @@ npm start
 ## Usage
 
 - Open the browser and navigate to `http://localhost:4000`
+
+Make some queries 🚀
